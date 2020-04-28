@@ -45,6 +45,8 @@ int main() {
         double y = dist_h(mt); //Randomly generate y position
         
         corsim::Subject su(x,y,SUBJECT_RADIUS,false, new LockdownMovementStrategy(x,y));
+        // SET 75% Of the Subject  to be in Self Isolation A.K.A Lockdown
+        if(i % 3 == 0){su.moveStrat = new RegularMovementStrategy(x,y);}
 
         su.set_dx(dist_dx(mt));
         su.set_dy(dist_dy(mt));
