@@ -17,80 +17,57 @@
 #include "subject.h"
 #include <math.h>
 
-namespace corsim
-{
+namespace corsim {
 
-Subject::Subject(int x, int y, int radius, bool infected)
-{
-    this->_x = x;
-    this->_y = y;
-    this->_radius = radius;
-    this->_infected = infected;
-}
+    double Subject::x() {
+        return this->moveStrat->x();
+    }
 
-double Subject::x()
-{
-    return this->_x;
-}
+    double Subject::y() {
+        return this->moveStrat->y();
+    }
 
-double Subject::y()
-{
-    return this->_y;
-}
+    void Subject::set_x(double x) {
+        this->moveStrat->set_x(x);
+    }
 
-void Subject::set_x(double x)
-{
-    this->_x = x;
-}
+    void Subject::set_y(double y) {
+        this->moveStrat->set_y(y);
+    }
 
-void Subject::set_y(double y)
-{
-    this->_y = y;
-}
+    double Subject::dx() {
+        return this->moveStrat->dx();
+    }
 
-double Subject::dx()
-{
-    return this->_dx;
-}
+    double Subject::dy() {
+        return this->moveStrat->dy();
+    }
 
-double Subject::dy()
-{
-    return this->_dy;
-}
+    void Subject::set_dx(double dx) {
+        this->moveStrat->set_dx(dx);
+    }
 
-void Subject::set_dx(double dx)
-{
-    this->_dx = dx;
-}
+    void Subject::set_dy(double dy) {
+        this->moveStrat->set_dy(dy);
+    }
 
-void Subject::set_dy(double dy)
-{
-    this->_dy = dy;
-}
+    int Subject::radius() {
+        return this->_radius;
+    }
 
-int Subject::radius()
-{
-    return this->_radius;
-}
+    bool Subject::infected() {
+        return this->_infected;
+    }
 
-bool Subject::infected()
-{
-    return this->_infected;
-}
+    void Subject::infect() {
+        this->_infected = true;
+    }
 
-void Subject::infect()
-{
-    this->_infected = true;
-}
+    double Subject::angle() {
+        return atan2(dy(),dx());
+    }
 
-double Subject::angle()
-{
-    return atan2(_dy,_dx);
-}
-
-double Subject::speed()
-{
-    return sqrt(_dx * _dx + _dy * _dy);
-}
-
+    double Subject::speed() {
+        return sqrt(dx() * dx() + dy() * dy());
+    }
 }

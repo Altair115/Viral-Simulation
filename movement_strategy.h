@@ -33,7 +33,6 @@ private:
 };
 
 class LockdownMovementStrategy : public MovementStrategy{
-    ~LockdownMovementStrategy();
 public:
     ~LockdownMovementStrategy();
     LockdownMovementStrategy(int x,int y) : _x(x),_y(y){};
