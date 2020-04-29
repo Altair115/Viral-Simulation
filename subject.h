@@ -17,6 +17,10 @@
 #pragma once
 #include "movement_strategy.h"
 
+//Duration Of Status effect in ticks
+constexpr int INCUBATION = 140; //10 ticks = 1 day for sim purposes
+constexpr int IMMUNITY = 280;
+
 namespace corsim {
 
 /**
@@ -26,7 +30,7 @@ namespace corsim {
     class Subject {
     public:
         Subject(int x, int y, int radius, bool infected, MovementStrategy *moveStrat) :
-                moveStrat(moveStrat), _x(x), _y(y), _infected(infected), _radius(radius) {};
+                moveStrat(moveStrat), _x(x), _y(y), _incubation(infected), _radius(radius) {};
         double x();
         double y();
         void set_x(double x);
@@ -38,12 +42,14 @@ namespace corsim {
         void set_dy(double dy);
         bool infected();
         void infect();
+        bool immune();
         double angle();
         double speed();
         MovementStrategy* moveStrat = new RegularMovementStrategy(0, 0);
     private:
         double _x = 0, _y = 0, _dx = 0, _dy = 0;
-        bool _infected = false;
+        int _incubation = INCUBATION;
         int _radius = 0;
+        int _immune = 0;
     };
 };

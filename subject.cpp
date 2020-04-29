@@ -56,15 +56,20 @@ namespace corsim {
     }
 
     bool Subject::infected() {
-        return this->_infected;
+        return this->_incubation > 0;
     }
 
     void Subject::infect() {
-        this->_infected = true;
+        if(!_immune)
+            this->_incubation = INCUBATION;
+    }
+
+    bool Subject::immune() {
+        return this->_immune > 0;
     }
 
     double Subject::angle() {
-        return atan2(dy(),dx());
+        return atan2(dy(), dx());
     }
 
     double Subject::speed() {
