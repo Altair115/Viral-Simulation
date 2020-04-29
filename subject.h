@@ -45,6 +45,7 @@ namespace corsim {
         bool immune();
         double angle();
         double speed();
+        void tick();
         MovementStrategy* moveStrat = new RegularMovementStrategy(0, 0);
     private:
         double _x = 0, _y = 0, _dx = 0, _dy = 0;

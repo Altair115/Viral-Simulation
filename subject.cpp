@@ -75,4 +75,15 @@ namespace corsim {
     double Subject::speed() {
         return sqrt(dx() * dx() + dy() * dy());
     }
+
+    void Subject::tick(){
+        if(_incubation > 1)
+            --_incubation;
+        if(_immune > 0)
+            --_immune;
+        if(_incubation == 1){
+            --_incubation;
+            _immune = IMMUNITY;
+        }
+    }
 }
