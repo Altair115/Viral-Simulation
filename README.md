@@ -57,3 +57,15 @@ Material you will need to review is listed below.
 - [Windows subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) (Small tutorial)
 - [Make tutorial](http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/) (Short read)
 - [Strategy pattern](https://www.youtube.com/watch?v=sRuem-JQZRE) (Short video)
+
+## **Running On Windows(With Linux Subsystem)**
+
+1. follow the link given above and install a linux system [Windows subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+2. Install EMSDK through the subsystem.
+3. add the path to your project's Makefile should look something like this:/mnt/d/tools/emsdk/upstream/emscripten/emcc if done through subsystem.
+4. go to project folder through subsystem and run a make command for debug building or running.
+5. (optional) if you have some errors with running a build use this command to fix it.
+```
+sudo apt-get install python3-distutils
+```
+6. now you should be able to run the project.
